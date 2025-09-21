@@ -11,7 +11,7 @@ export default function App() {
   // Получаем текущую позу с видео
   const pose = usePoseDetection(videoRef);
 
-  // Обработчик готовности видео — сохраняем размеры для канваса и отображаемый размер видео
+  // Обработчик готовности видео — сохраняем реальные и отображаемые размеры видео
   function handleVideoReady(videoElement) {
     videoRef.current = videoElement;
     setVideoSize({
@@ -24,7 +24,7 @@ export default function App() {
     });
   }
 
-  // Для обновления отображаемого размера при ресайзе окна
+  // Обновляем отображаемый размер при изменении окна (чтобы синхронизировать с видео)
   useEffect(() => {
     function handleResize() {
       if (videoRef.current) {
