@@ -1,3 +1,10 @@
+/* Обеспечивает корректный размер элементов с padding и border */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -11,9 +18,11 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -32,7 +41,7 @@
     animation: logo-spin infinite 20s linear;
   }
 }
-
+  
 .card {
   padding: 2em;
 }
