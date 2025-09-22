@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import CameraStream from './CameraStream';
 import PoseCanvas from './PoseCanvas';
-import { usePoseDetection } from '../hooks/usePoseDetection';
+import { usePoseDetection } from '../../hooks/usePoseDetection';
 
-export default function App() {
+export default function PoseDetectionPage() {
   const [videoSize, setVideoSize] = useState({ width: 640, height: 480 });
   const [displaySize, setDisplaySize] = useState({ width: 640, height: 480 });
   const [photo, setPhoto] = useState(null);

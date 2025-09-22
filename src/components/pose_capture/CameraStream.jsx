@@ -1,5 +1,5 @@
 import React from 'react';
-import { useCamera } from '../hooks/useCamera';
+import { useCamera } from '../../hooks/useCamera';
 
 export default function CameraStream({ onVideoReady }) {
   const { videoRef, error } = useCamera();
