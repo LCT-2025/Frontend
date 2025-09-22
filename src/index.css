@@ -13,10 +13,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+#root {
+  width: 100vw;
+  height: 100vh;
 }
 
 a:hover {
