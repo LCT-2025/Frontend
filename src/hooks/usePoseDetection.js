@@ -10,8 +10,6 @@ export function usePoseDetection(videoRef) {
     let active = true;
 
     async function runDetection() {
-      await initDetector();
-
       async function detect() {
         if (!active || !videoRef.current) return;
         const detectedPose = await estimatePose(videoRef.current);

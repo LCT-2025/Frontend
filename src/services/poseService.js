@@ -1,6 +1,4 @@
 import * as posedetection from '@tensorflow-models/pose-detection';
-import * as tf from '@tensorflow/tfjs';
-import '@tensorflow/tfjs-backend-webgl';
 
 let detector = null;
 
@@ -10,7 +8,6 @@ let detector = null;
  */
 export async function initDetector() {
   if (!detector) {
-    await tf.setBackend('webgl');
     detector = await posedetection.createDetector(posedetection.SupportedModels.MoveNet, {
       modelType: posedetection.movenet.modelType.SINGLEPOSE_LIGHTNING,
       enableSmoothing: true, // сглаживание для стабильности ключевых точек
