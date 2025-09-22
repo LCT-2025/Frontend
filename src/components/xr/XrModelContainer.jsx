@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { Suspense } from 'react';
 import { ARAnchor, ARView } from "react-three-mind";
-import Model from './Model';
+import { Html } from '@react-three/drei';
+import { DreiModel } from './DreiModel';
 import Cube from './Cube';
 
-
 const XrModelContainer = () => {
-  return (<ARView
+  return (
+    <ARView
       imageTargets="/targets.mind"
       filterMinCF={0.001}
       filterBeta={1000}
@@ -16,14 +17,17 @@ const XrModelContainer = () => {
       <ambientLight />
       <pointLight position={[10, 10, 10]} />
       <ARAnchor 
-      target={0}
-      onAnchorFound={() => console.log(' Маркер найден!')}
-        onAnchorLost={() => console.log(' Маркер потерян!')}>
-        <Model url='/larisa.glb' scale={[0.1, 0.1, 0.1]} position={[0, 0, 0]}/>
+        target={0}
+        onAnchorFound={() => console.log(' Маркер найден!')}
+        onAnchorLost={() => console.log(' Маркер потерян!')}
+      >
+        <Suspense fallback={<Html center>Loading...</Html>}>
+          <DreiModel scale={[0.1, 0.1, 0.1]} position={[0, 0, 0]} />
+        </Suspense>
       </ARAnchor>
-      <Cube position={[0,0,-2]}/>
+      <Cube position={[0, 0, -2]} />
     </ARView>
   );
 }
 
-export default XrModelContainer
+export default XrModelContainer;

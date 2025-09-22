@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import PoseDetectionPage from './components/pose_capture/PoseDetectionPage.jsx';
 import XrModelContainer from './components/xr/XrModelContainer.jsx';
-import CubeContainer from './components/xr/ModelContainer.jsx';
+import ModelContainer from './components/xr/ModelContainer.jsx';
 
 
 
