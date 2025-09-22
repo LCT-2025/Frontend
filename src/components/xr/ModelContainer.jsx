@@ -2,6 +2,7 @@ import React from 'react'
 import {Canvas} from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import Cube from "./Cube"
+import Model from './Model'
 
 
 const CubeContainer = () => {
@@ -11,7 +12,7 @@ const CubeContainer = () => {
     <Canvas>
       <OrbitControls />
       <ambientLight />
-      <Cube />
+      <Cube/>
     </Canvas>
   )
 }

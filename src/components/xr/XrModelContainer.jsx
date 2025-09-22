@@ -1,6 +1,8 @@
 import React from 'react'
 import { ARAnchor, ARView } from "react-three-mind";
 import Model from './Model';
+import Cube from './Cube';
+
 
 const XrModelContainer = () => {
   return (<ARView
@@ -17,12 +19,9 @@ const XrModelContainer = () => {
       target={0}
       onAnchorFound={() => console.log(' Маркер найден!')}
         onAnchorLost={() => console.log(' Маркер потерян!')}>
-        <Model scale={[0.1, 0.1, 0.1]} position={[0, 0, 0]}/>
-        <mesh scale={[0.001, 0.001, 0.001]} position={[0, 0.1, 0]}>
-          <boxGeometry args={[1, 1, 1]} />
-          <meshStandardMaterial color="red" />
-        </mesh>
+        <Model url='/larisa.glb' scale={[0.1, 0.1, 0.1]} position={[0, 0, 0]}/>
       </ARAnchor>
+      <Cube position={[0,0,-2]}/>
     </ARView>
   );
 }

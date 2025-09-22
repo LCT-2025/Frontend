@@ -1,18 +1,11 @@
 import { useGLTF } from '@react-three/drei';
-import React, { useEffect } from 'react';
+import React from 'react';
 
 
-const Model = ({ scale = [1, 1, 1], position = [0, 0, 0] }) => {
-  const { scene } = useGLTF('larisa.glb');
+const Model = ({ url = '', scale = [1, 1, 1], position = [0, 0, 0] }) => {
+  const { scene } = useGLTF(url);
 
-  useEffect(() => {
-    if (scene) {
-      scene.scale.set(scale[0], scale[1], scale[2]);
-      scene.position.set(position[0], position[1], position[2]);
-    }
-  }, [scene, scale, position]);
-
-  return <primitive object={scene} />;
+  return <primitive object={scene} scale={scale} position={position} />;
 }
 
 export default Model;
