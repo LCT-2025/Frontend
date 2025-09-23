@@ -6,7 +6,7 @@ export default function CameraStream({ onVideoReady }) {
 
   React.useEffect(() => {
     if (videoRef.current && onVideoReady) {
-      // Событие срабатывает, когда метаданные видео (в том числе размеры) загружены
+      // Событие срабатывает при загрузке метаданных видео (например, размеры)
       videoRef.current.onloadedmetadata = () => {
         onVideoReady(videoRef.current);
       };

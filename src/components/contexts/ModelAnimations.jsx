@@ -1,23 +1,31 @@
 import { createContext, useContext, useState } from "react";
 
+const ModelAnimationsContext = createContext(null);
 
-const ModelAnimationsContext = createContext({});
+export const ModelAnimationsProvider = ({ children }) => {
+  const [animations, setAnimations] = useState([]);
+  const [animationIndex, setAnimationIndex] = useState(0);
 
-export const ModelAnimationsProvider = (props)=>{
-const [animations, setAnimations] = useState([]);
-const [animationIndex, setAnimationIndex] = useState(0);
-    return <> 
-        <ModelAnimationsContext.Provider value={{
-            animations, 
-            setAnimations,
-            animationIndex, 
-            setAnimationIndex}}
-            >
-            {props.children}
-        </ModelAnimationsContext.Provider>
-        </>
+  return (
+    <ModelAnimationsContext.Provider
+      value={{
+        animations,
+        setAnimations,
+        animationIndex,
+        setAnimationIndex,
+      }}
+    >
+      {children}
+    </ModelAnimationsContext.Provider>
+  );
 };
 
 export const useModelAnimations = () => {
-    return useContext(ModelAnimationsContext);
+  const context = useContext(ModelAnimationsContext);
+  if (!context) {
+    throw new Error(
+      "useModelAnimations must be used within a ModelAnimationsProvider"
+    );
+  }
+  return context;
 };
