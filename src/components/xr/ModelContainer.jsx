@@ -1,30 +1,22 @@
 import React from 'react'
 import {Canvas} from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
-import Cube from "./Cube"
-import Model from './Model'
-import { DreiModel } from './DreiModel'
-import { ModelAnimationsProvider } from '../contexts/ModelAnimations'
-import Interface from './Interface'
-import { Arbak } from './Arbak';
-
+import Scene from './Scene.jsx';
 
 
 const ModelContainer = () => {
 
+  // сцена не нужна тк все собираем вручную
+    // но возможно будет неплохо использовать список моделей
+    // с их кордами и обернуть все в анимейтед компонент через .map()
 
-  return (
-    <ModelAnimationsProvider>
-    <div className="model-container">
-    <Canvas>
-      <OrbitControls />
-      <ambientLight />
-      <Arbak scale={[0.1, 0.1, 0.1]} position={[0, 0, 0]}/>
-    </Canvas>
-    <Interface/>
-    </div>
-    </ModelAnimationsProvider>
-  )
+    return (
+        <Canvas>
+            <OrbitControls />
+            <ambientLight />
+            <Scene />
+        </Canvas>
+    )
 }
 
 export default ModelContainer

@@ -1,23 +1,25 @@
 import React, { Suspense } from 'react'
-import { Canvas } from '@react-three/fiber'
 import { OrbitControls, useProgress, Html } from '@react-three/drei'
-import Prefab from './Prefab';
-import AnimationController from './AnimationController';
+import Model from './Model';
+import { ModelAnimationsProvider } from '../contexts/ModelAnimations';
 
 function Loader() {
     const { progress } = useProgress();
     return <Html center>{progress.toFixed(1)} % loaded</Html>
 }
 
-export default function Scene() {
+const Scene = () => {
+
+  // как уровень в юнити сохраняет размещенные ассеты и их положение
 
     return (
-        <Canvas>
-            <OrbitControls />
+        <ModelAnimationsProvider>
             <ambientLight />
             <Suspense fallback={<Loader />}>
-                <AnimationController url='/larisa.glb' />
+                <Model url='/larisa.glb' />
             </Suspense>
-        </Canvas>
+        </ModelAnimationsProvider>
     )
 }
+
+export default Scene
