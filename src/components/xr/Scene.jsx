@@ -17,6 +17,7 @@ const Scene = () => {
             <ambientLight />
             <Suspense fallback={<Loader />}>
                 <Model url='/larisa.glb' />
+                <Model url='/larisa.glb' position={[2,2,0]}/>
             </Suspense>
         </ModelAnimationsProvider>
     )
