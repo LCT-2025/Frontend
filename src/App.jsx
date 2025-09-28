@@ -8,13 +8,11 @@ import ModelContainer from './components/xr/ModelContainer.jsx';
 
 export default function App() {
   return (
-    <Layout>
       <Routes>
         <Route path="/" element={<ModelContainer />} />
         <Route path="/xr" element={<XrModelContainer />} />
         <Route path="/pose" element={<PoseDetectionPage />} />
         <Route path="/upload" element={<UploadPanel />} />
       </Routes>
-    </Layout>
   );
 }

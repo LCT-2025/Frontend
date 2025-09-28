@@ -2,6 +2,7 @@ import React from 'react'
 import {Canvas} from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import Scene from './Scene.jsx';
+import Overlay from './Overlay.jsx';
 
 
 const ModelContainer = () => {
@@ -14,7 +15,8 @@ const ModelContainer = () => {
         <Canvas>
             <OrbitControls />
             <ambientLight />
-            <Scene />
+            <Scene/>
+            <Overlay/>
         </Canvas>
     )
 }
