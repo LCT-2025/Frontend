@@ -3,9 +3,6 @@ import React, { useEffect, useMemo, useRef } from 'react';
 import { SkeletonUtils } from 'three-stdlib';
 import { useModelAnimations } from '../contexts/ModelAnimations';
 
-const  handleClick = () => {
-  console.log("model clicked")
-}
 
 export default function Model({ url = '', scale = [1, 1, 1], position = [0, 0, 0]}) {
   const group = useRef();
@@ -14,12 +11,20 @@ export default function Model({ url = '', scale = [1, 1, 1], position = [0, 0, 0
   const { actions, names } = useAnimations(animations, group);
 
   // нужно настроить использование этого хука
-  const {setAnimations, animationIndex} = useModelAnimations(url);
+  const {setAnimations, animationIndex, setAnimationIndex} = useModelAnimations(url);
   
   //остальное должно работать, когда хук возвращает свои значения
   useEffect(() => {
+    // TODO: если длина списка names=0, то берем из пропсов спринговские names + actions
     setAnimations(names);
   }, [])
+
+  const handleAnimationChange = () => {
+    // логика смены индекса анимации
+    let index = (animationIndex + 1) % names.length;
+    console.log(`model was clicked with anim ${names[index]}`)
+    setAnimationIndex(index);
+  };
 
   useEffect(() => {
         actions[names[animationIndex]].reset().fadeIn(0.5).play();
@@ -37,7 +42,7 @@ export default function Model({ url = '', scale = [1, 1, 1], position = [0, 0, 0
 
   return (
     <group ref={group} scale={scale} position={position}>
-      <primitive object={clonedScene} onClick={handleClick}/>
+      <primitive object={clonedScene} onClick={handleAnimationChange}/>
     </group>
   );
 }
