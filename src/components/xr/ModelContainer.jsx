@@ -12,7 +12,7 @@ const ModelContainer = () => {
     // с их кордами и обернуть все в анимейтед компонент через .map()
 
     return (
-        <Canvas>
+        <Canvas gl={{ preserveDrawingBuffer: true }}>
             <OrbitControls />
             <ambientLight />
             <Scene/>

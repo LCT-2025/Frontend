@@ -11,10 +11,8 @@ const XrModelContainer = () => {
       missTolerance={5}
       warmupTolerance={5}
       flipUserCamera={false}
-      style={{ position: "absolute", inset: "0", touchAction: "none" }} 
-      gl={{ localClippingEnabled: true }}
+      gl={{ preserveDrawingBuffer: true, alpha: true }}
     >
-      {/* UI теперь здесь, снаружи якоря */}
       <Overlay />
 
       <ambientLight />
@@ -23,7 +21,6 @@ const XrModelContainer = () => {
         onAnchorFound={() => console.log(' Маркер 0 найден!')}
         onAnchorLost={() => console.log(' Маркер 0 потерян!')}
       >
-        {/* Внутри якоря осталась только 3D-сцена, привязанная к маркеру */}
         <Scene/>
       </ARAnchor>
     </ARView>
