@@ -4,9 +4,8 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  server: {
-    host: true,  // слушать все интерфейсы (важно для доступа по IP)
-    allowedHosts: true, // разрешённый домен ngrok
-  },
+  preview: {
+     allowedHosts: ["http://144.21.39.77", "http://144.21.39.77:8080", "xn--80adsi2a0f.xn--b1agjiduva.xn--p1ai", "эврика.великосс.рф"],
+ }
 })
 
