@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    environment:
+      - VITE_API_BASE_URL=http://localhost:8080
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+  frontend-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - VITE_API_BASE_URL=http://localhost:8080
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

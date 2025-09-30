@@ -8,7 +8,13 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "setup-env": "node setup-env.js"
+    "setup-env": "node setup-env.js",
+    "docker:build": "docker build -t lct-frontend .",
+    "docker:dev": "docker build -f Dockerfile.dev -t lct-frontend-dev .",
+    "docker:run": "docker run -p 3000:80 lct-frontend",
+    "docker:run-dev": "docker run -p 5173:5173 -v $(pwd):/app lct-frontend-dev",
+    "docker:compose": "docker-compose up frontend",
+    "docker:compose-dev": "docker-compose up frontend-dev"
   },
   "dependencies": {
     "@react-three/cannon": "^6.6.0",
