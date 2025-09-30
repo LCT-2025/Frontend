@@ -8,26 +8,16 @@ function Loader() {
     return <Html center>{progress.toFixed(1)} % loaded</Html>
 }
 
-const Scene = ({ modelName = 'default' }) => {
-    // Get model URL based on model name
-    const getModelUrl = (name) => {
-        // In a real implementation, you would fetch this from the API
-        // For now, we'll use a simple mapping
-        const modelUrls = {
-            'larisa': '/larisa.glb',
-            'arbak': '/arbak.glb',
-            'default': '/larisa.glb'
-        };
-        return modelUrls[name] || modelUrls['default'];
-    };
+const Scene = () => {
 
-    const modelUrl = getModelUrl(modelName);
+  // как уровень в юнити сохраняет размещенные ассеты и их положение
 
     return (
         <ModelAnimationsProvider>
             <ambientLight />
             <Suspense fallback={<Loader />}>
-                <Model url={modelUrl} />
+                <Model url='/larisa.glb' />
+                <Model url='/larisa.glb' position={[2,2,0]}/>
             </Suspense>
         </ModelAnimationsProvider>
     )
