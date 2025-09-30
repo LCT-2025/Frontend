@@ -71,7 +71,7 @@ export default function AdminUpload() {
       if (modelData.description) formData.append('description', modelData.description);
       formData.append('params', JSON.stringify(params));
 
-      const response = await authFetch('http://localhost:8080/admin/models', {
+      const response = await authFetch('https://api.xn--b1agjiduva.xn--p1ai/admin/models', {
         method: 'POST',
         body: formData
       });
@@ -122,7 +122,7 @@ export default function AdminUpload() {
       if (imageData.description) formData.append('description', imageData.description);
       formData.append('metadata', JSON.stringify(metadata));
 
-      const response = await authFetch('http://localhost:8080/admin/images', {
+      const response = await authFetch('https://api.xn--b1agjiduva.xn--p1ai/admin/images', {
         method: 'POST',
         body: formData
       });

@@ -18,7 +18,7 @@ Create a `.env.local` file in the Frontend directory with:
 
 ```env
 # Backend API Configuration
-VITE_API_BASE_URL=http://localhost:8080
+VITE_API_BASE_URL=https://api.xn--b1agjiduva.xn--p1ai
 
 # Development Configuration
 VITE_DEV_MODE=true
@@ -27,10 +27,10 @@ VITE_DEV_MODE=true
 ## Configuration Options
 
 ### VITE_API_BASE_URL
-- **Default**: `http://localhost:8080`
+- **Default**: `https://api.xn--b1agjiduva.xn--p1ai`
 - **Description**: The base URL of your backend server
 - **Examples**:
-  - Local development: `http://localhost:8080`
+  - Local development: `https://xn--80adsi2a0f.xn--b1agjiduva.xn--p1ai`
   - Remote server: `http://your-server.com:8080`
   - HTTPS: `https://your-domain.com`
 
@@ -43,7 +43,7 @@ VITE_DEV_MODE=true
 
 ### Local Development
 ```env
-VITE_API_BASE_URL=http://localhost:8080
+VITE_API_BASE_URL=https://xn--80adsi2a0f.xn--b1agjiduva.xn--p1ai
 ```
 
 ### Remote Backend

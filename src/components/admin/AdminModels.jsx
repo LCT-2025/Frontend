@@ -22,8 +22,8 @@ export default function AdminModels() {
       setError('');
 
       const [modelsResponse, imagesResponse] = await Promise.all([
-        fetch('http://localhost:8080/api/models'),
-        fetch('http://localhost:8080/api/images')
+        fetch('https://api.xn--b1agjiduva.xn--p1ai/api/models'),
+        fetch('https://api.xn--b1agjiduva.xn--p1ai/api/images')
       ]);
 
       if (modelsResponse.ok) {
@@ -44,7 +44,7 @@ export default function AdminModels() {
 
   const deleteModel = async (id) => {
     try {
-      const response = await authFetch(`http://localhost:8080/admin/models/${id}`, {
+      const response = await authFetch(`https://api.xn--b1agjiduva.xn--p1ai/admin/models/${id}`, {
         method: 'DELETE'
       });
 
@@ -61,7 +61,7 @@ export default function AdminModels() {
 
   const deleteImage = async (id) => {
     try {
-      const response = await authFetch(`http://localhost:8080/admin/images/${id}`, {
+      const response = await authFetch(`https://api.xn--b1agjiduva.xn--p1ai/admin/images/${id}`, {
         method: 'DELETE'
       });
 
@@ -78,7 +78,7 @@ export default function AdminModels() {
 
   const updateModel = async (id, data) => {
     try {
-      const response = await authFetch(`http://localhost:8080/admin/models/${id}`, {
+      const response = await authFetch(`https://api.xn--b1agjiduva.xn--p1ai/admin/models/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
@@ -100,7 +100,7 @@ export default function AdminModels() {
 
   const updateImage = async (id, data) => {
     try {
-      const response = await authFetch(`http://localhost:8080/admin/images/${id}`, {
+      const response = await authFetch(`https://api.xn--b1agjiduva.xn--p1ai/admin/images/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
@@ -127,7 +127,7 @@ export default function AdminModels() {
       formData.append('name', modelName);
       formData.append('description', `Image for model ${modelName}`);
 
-      const response = await authFetch('http://localhost:8080/admin/images', {
+      const response = await authFetch('https://api.xn--b1agjiduva.xn--p1ai/admin/images', {
         method: 'POST',
         body: formData
       });
@@ -445,7 +445,7 @@ export default function AdminModels() {
                   marginBottom: '12px'
                 }}>
                   <img 
-                    src={`http://localhost:8080/files/image/${image.name}`}
+                    src={`https://api.xn--b1agjiduva.xn--p1ai/files/image/${image.name}`}
                     alt={image.name}
                     loading="lazy"
                     style={{

@@ -19,7 +19,7 @@ export default function AdminStats() {
       setLoading(true);
       setError('');
       
-      let endpoint = 'http://localhost:8080/admin/stats';
+      let endpoint = 'https://api.xn--b1agjiduva.xn--p1ai/admin/stats';
       if (activeView === 'visits') endpoint += '/visits';
       if (activeView === 'downloads') endpoint += '/downloads';
 

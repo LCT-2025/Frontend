@@ -5,7 +5,7 @@ const path = require('path');
 
 // Default environment configuration
 const defaultEnv = `# Backend API Configuration
-VITE_API_BASE_URL=http://localhost:8080
+VITE_API_BASE_URL=https://api.xn--b1agjiduva.xn--p1ai
 
 # Development Configuration
 VITE_DEV_MODE=true

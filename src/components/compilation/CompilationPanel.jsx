@@ -68,7 +68,7 @@ const CompilationPanel = () => {
       for (let i = 0; i < images.length; i++) {
         const img = new Image();
         img.crossOrigin = 'anonymous';
-        img.src = `http://localhost:8080/files/image/${images[i].name}`;
+        img.src = `https://api.xn--b1agjiduva.xn--p1ai/files/image/${images[i].name}`;
         
         imageElements.push({
           element: img,
