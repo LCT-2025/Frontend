@@ -6,6 +6,7 @@ import AdminDashboard from './components/admin/AdminDashboard.jsx';
 import AdminUpload from './components/admin/AdminUpload.jsx';
 import AdminStats from './components/admin/AdminStats.jsx';
 import AdminModels from './components/admin/AdminModels.jsx';
+import AdminCompilation from './components/admin/AdminCompilation.jsx';
 import { AdminProvider } from './components/admin/AdminContext.jsx';
 
 export default function AdminApp() {
@@ -19,6 +20,7 @@ export default function AdminApp() {
           <Route path="upload" element={<AdminUpload />} />
           <Route path="stats" element={<AdminStats />} />
           <Route path="models" element={<AdminModels />} />
+          <Route path="compilation" element={<AdminCompilation />} />
         </Route>
       </Routes>
     </AdminProvider>

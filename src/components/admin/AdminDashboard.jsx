@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAdmin } from './AdminContext.jsx';
+import CompilationPanel from '../compilation/CompilationPanel.jsx';
 
 export default function AdminDashboard() {
   const [dashboardData, setDashboardData] = useState(null);
@@ -257,6 +258,13 @@ export default function AdminDashboard() {
               style={{textDecoration: 'none', textAlign: 'center'}}
             >
               🎯 Управление моделями
+            </a>
+            <a 
+              href="/admin/compilation" 
+              className="cancel-button"
+              style={{textDecoration: 'none', textAlign: 'center'}}
+            >
+              🔧 MindAR Компиляция
             </a>
           </div>
         </div>

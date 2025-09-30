@@ -31,6 +31,12 @@ export default function AdminSidebar() {
       icon: '📈',
       label: 'Статистика',
       description: 'Детальная аналитика'
+    },
+    {
+      to: '/admin/compilation',
+      icon: '🔧',
+      label: 'MindAR Компиляция',
+      description: 'Компиляция изображений'
     }
   ];
 
