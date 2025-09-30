@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { API_ENDPOINTS } from '../config/api.js';
 
 // Хук для отслеживания метрик (визиты, длительность сессии)
 export function useMetrics() {
@@ -11,7 +12,7 @@ export function useMetrics() {
     // Регистрируем начало визита
     const registerVisit = async () => {
       try {
-        await fetch('http://localhost:8080/api/metrics/visit', {
+        await fetch(API_ENDPOINTS.VISIT_METRICS, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -31,7 +32,7 @@ export function useMetrics() {
     const updateSessionDuration = async () => {
       const duration = Math.floor((Date.now() - sessionStart) / 1000);
       try {
-        await fetch('http://localhost:8080/api/metrics/session', {
+        await fetch(API_ENDPOINTS.SESSION_METRICS, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json'
@@ -52,7 +53,7 @@ export function useMetrics() {
     const handleBeforeUnload = () => {
       const duration = Math.floor((Date.now() - sessionStart) / 1000);
       navigator.sendBeacon(
-        'http://localhost:8080/api/metrics/session',
+        API_ENDPOINTS.SESSION_METRICS,
         JSON.stringify({
           session_id: sessionId,
           duration_sec: duration

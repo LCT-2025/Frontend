@@ -2,6 +2,7 @@ import { ARAnchor, ARView } from "react-three-mind";
 import { useState, useEffect } from 'react';
 import Scene from './Scene.jsx';
 import Overlay from "./Overlay.jsx";
+import { API_ENDPOINTS } from '../../config/api.js';
 
 const XrModelContainer = () => {
   const [mindFileUrl, setMindFileUrl] = useState('/targets.mind');
@@ -16,7 +17,7 @@ const XrModelContainer = () => {
   const fetchCompilationData = async () => {
     try {
       // Get the latest .mind file
-      const mindResponse = await fetch('http://localhost:8080/api/compilation/mind-file');
+      const mindResponse = await fetch(API_ENDPOINTS.COMPILATION_MIND_FILE);
       if (mindResponse.ok) {
         const mindBlob = await mindResponse.blob();
         const mindUrl = URL.createObjectURL(mindBlob);
@@ -24,7 +25,7 @@ const XrModelContainer = () => {
       }
 
       // Get compilation mappings
-      const mappingsResponse = await fetch('http://localhost:8080/api/compilation/mappings');
+      const mappingsResponse = await fetch(API_ENDPOINTS.COMPILATION_MAPPINGS);
       if (mappingsResponse.ok) {
         const mappings = await mappingsResponse.json();
         setCompilationMappings(mappings);

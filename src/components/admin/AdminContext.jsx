@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { API_ENDPOINTS } from '../../config/api.js';
 
 const AdminContext = createContext(null);
 
@@ -16,7 +17,7 @@ export function AdminProvider({ children }) {
   const validateToken = async () => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:8080/admin/profile', {
+      const response = await fetch(API_ENDPOINTS.ADMIN_PROFILE, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -39,7 +40,7 @@ export function AdminProvider({ children }) {
   const login = async (email, password) => {
     try {
       setLoading(true);
-      const response = await fetch('http://localhost:8080/admin/login', {
+      const response = await fetch(API_ENDPOINTS.ADMIN_LOGIN, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

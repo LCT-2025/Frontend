@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAdmin } from './AdminContext.jsx';
 import CompilationPanel from '../compilation/CompilationPanel.jsx';
+import { API_ENDPOINTS } from '../../config/api.js';
 
 export default function AdminDashboard() {
   const [dashboardData, setDashboardData] = useState(null);
@@ -15,7 +16,7 @@ export default function AdminDashboard() {
   const fetchDashboardData = async () => {
     try {
       setLoading(true);
-      const response = await authFetch('http://localhost:8080/admin/dashboard');
+      const response = await authFetch(API_ENDPOINTS.ADMIN_DASHBOARD);
       
       if (response.ok) {
         const data = await response.json();

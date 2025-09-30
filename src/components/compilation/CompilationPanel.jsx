@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAdmin } from '../admin/AdminContext';
+import { API_ENDPOINTS } from '../../config/api.js';
 
 const CompilationPanel = () => {
   const { authFetch } = useAdmin();
@@ -16,7 +17,7 @@ const CompilationPanel = () => {
   const fetchData = async () => {
     try {
       // Fetch images for compilation
-      const imagesResponse = await authFetch('http://localhost:8080/api/compilation/images');
+      const imagesResponse = await authFetch(API_ENDPOINTS.COMPILATION_IMAGES);
       if (imagesResponse.ok) {
         const imagesData = await imagesResponse.json();
         setImages(imagesData);
@@ -32,7 +33,7 @@ const CompilationPanel = () => {
       }
 
       // Fetch models
-      const modelsResponse = await authFetch('http://localhost:8080/api/models');
+      const modelsResponse = await authFetch(API_ENDPOINTS.MODELS);
       if (modelsResponse.ok) {
         const modelsData = await modelsResponse.json();
         setModels(modelsData);
@@ -98,7 +99,7 @@ const CompilationPanel = () => {
       formData.append('mind_file', mindFileBlob, 'targets.mind');
       formData.append('mappings', JSON.stringify(mappings));
 
-      const response = await authFetch('http://localhost:8080/api/compilation/save', {
+      const response = await authFetch(API_ENDPOINTS.COMPILATION_SAVE, {
         method: 'POST',
         body: formData
       });
@@ -159,7 +160,7 @@ const CompilationPanel = () => {
                   <td style={{ padding: '12px', fontWeight: 'bold', color: '#ffffff' }}>{mapping.index}</td>
                   <td style={{ padding: '12px' }}>
                     <img 
-                      src={`http://localhost:8080/files/image/${mapping.imageName}`} 
+                      src={API_ENDPOINTS.IMAGE_FILE(mapping.imageName)} 
                       alt={mapping.imageName}
                       style={{ width: '60px', height: '60px', objectFit: 'cover', borderRadius: '4px' }}
                     />
