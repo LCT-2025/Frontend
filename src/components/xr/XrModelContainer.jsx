@@ -8,7 +8,8 @@ const mindFile = API_ENDPOINTS.COMPILATION_MIND_FILE;
 const XrModelContainer = () => {
   return (
     <ARView
-      imageTargets={mindFile}
+      autoplay
+      imageTargets={'/targets.mind'}
       filterMinCF={0.001}
       filterBeta={1000}
       missTolerance={5}

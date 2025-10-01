@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import XrModelContainer from './components/xr/XrModelContainer.jsx';
+import ModelContainer from './components/xr/ModelContainer.jsx';
 import AdminApp from './AdminApp.jsx';
 import { useMetrics } from './hooks/useMetrics.js';
 
