@@ -1,8 +1,13 @@
-import { useAnimations, useGLTF } from '@react-three/drei';
+import { useAnimations, useGLTF, useProgress, Html } from '@react-three/drei';
 import React, { useEffect, useMemo, useRef } from 'react';
 import { SkeletonUtils } from 'three-stdlib';
 import { useModelAnimations } from '../contexts/ModelAnimations';
 
+
+export function Loader() {
+    const { progress } = useProgress();
+    return <Html center>{progress.toFixed(1)} % loaded</Html>
+}
 
 export default function Model({ url = '', scale = [1, 1, 1], position = [0, 0, 0]}) {
   const group = useRef();

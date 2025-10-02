@@ -1,53 +1,82 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Html } from '@react-three/drei';
 import { takeScreenshot } from '../../utils/screenshot';
 
-const Overlay = () => {
-  return (
-    <Html 
-      fullscreen
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        width: '100%',
-        height: '100%',
-        pointerEvents: 'none',
-        padding: '30px',
-        boxSizing: 'border-box'
-      }}
-    >
-      
-      <div 
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          width: '600px', 
-          height: '200px',
-          backgroundColor: 'rgba(255, 0, 0, 0.8)',
-          borderRadius: '12px',
-          pointerEvents: 'auto',
-          boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
-        }}
-      >
-        <div style={{ flexGrow: 1, margin: '32px', backgroundColor: 'green', borderRadius: '8px' }} />
-        <div style={{ flexGrow: 1, margin: '32px', backgroundColor: 'blue', borderRadius: '8px' }} />
-      </div>
+const Overlay = ({ text }) => {
+  const [isTextVisible, setIsTextVisible] = useState(false);
 
-      
-      <div style={{ pointerEvents: 'auto' }}>
+  const handleScreenshotClick = () => {
+    takeScreenshot();
+    setIsTextVisible(true);
+  };
+
+  return (
+    <Html fullscreen style={{ pointerEvents: 'none' }}>
+
+      {/* Top Image */}
+      <img 
+        src="/souz.png" 
+        alt="Souz"
+        style={{
+          position: 'fixed',
+          bottom: '20vh',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: '150px',
+          pointerEvents: 'auto',
+        }}
+      />
+
+      {/* Text Panel (conditionally rendered) */}
+      {isTextVisible && (
+        <div 
+          style={{
+            position: 'fixed',
+            top: '25%',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '600px', 
+            minHeight: '100px',
+            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            borderRadius: '12px',
+            pointerEvents: 'auto',
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35)',
+            padding: '20px',
+            boxSizing: 'border-box',
+            color: 'white',
+            fontSize: '24px',
+            textAlign: 'center',
+          }}
+        >
+          {text}
+        </div>
+      )}
+
+      {/* Bottom Button */}
+      <div style={{
+        position: 'fixed',
+        top: '30vh',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        pointerEvents: 'auto'
+      }}>
         <button
-          onClick={takeScreenshot}
+          onClick={handleScreenshotClick}
           style={{
             padding: '12px 24px',
             fontSize: '16px',
-            color: 'white',
-            backgroundColor: '#007bff',
+            fontWeight: '600',
+            fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+            color: '#e6edf3',
+            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
             border: 'none',
             borderRadius: '8px',
             cursor: 'pointer',
-            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)',
+            boxShadow: '0 0 25px rgba(102, 126, 234, 0.35), 0 8px 32px rgba(0, 0, 0, 0.35)',
+            transition: 'all 0.2s ease',
           }}
         >
           Скриншот
