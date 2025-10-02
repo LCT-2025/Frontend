@@ -14,7 +14,7 @@ const Shlapa = () => {
         <ModelAnimationsProvider>
             <ambientLight />
             <Suspense fallback={<Loader />}>
-                <Model url={modelUrl} />
+                <Model url={modelUrl} scale={[0.3, 0.3, 0.3]}/>
             </Suspense>
         </ModelAnimationsProvider>
     )

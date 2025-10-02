@@ -6,7 +6,13 @@ import { useModelAnimations } from '../contexts/ModelAnimations';
 
 export function Loader() {
     const { progress } = useProgress();
-    return <Html center>{progress.toFixed(1)} % loaded</Html>
+    return (
+        <Html center>
+            <div style={{ fontSize: '2rem', color: 'white', backgroundColor: 'rgba(0, 255, 247, 0.5)', padding: '10px 20px', borderRadius: '8px' }}>
+                {progress.toFixed(1)} % loaded
+            </div>
+        </Html>
+    );
 }
 
 export default function Model({ url = '', scale = [1, 1, 1], position = [0, 0, 0]}) {
