@@ -9,23 +9,19 @@ function Loader() {
     return <Html center>{progress.toFixed(1)} % loaded</Html>
 }
 
-// как уровень в юнити сохраняет размещенные модели и их положение
-// шаблон для собственных сцен, которые соотносятся с маркерами
-// у компоненты модели есть пропс scale and position
+// в url нужно передать путь до эндпоинта с именем модели
+const Cheba = () => {
 
-// формат пути до каждой загруженной модели
-//const modelUrl = API_ENDPOINTS.MODEL_FILE('larisa');
-
-const Scene = () => {
-
+  // как уровень в юнити сохраняет размещенные ассеты и их положение
 
     return (
         <ModelAnimationsProvider>
             <ambientLight />
             <Suspense fallback={<Loader />}>
+
             </Suspense>
         </ModelAnimationsProvider>
     )
 }
 
-export default Scene
+export default Cheba
