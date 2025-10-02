@@ -2,7 +2,7 @@ import React, { Suspense } from 'react'
 import { OrbitControls, useProgress, Html } from '@react-three/drei'
 import Model from './Model';
 import { ModelAnimationsProvider } from '../contexts/ModelAnimations';
-import { API_ENDPOINTS } from 'd:/_Projects/_ar_lct/Frontend/src/config/api.js';
+import { API_ENDPOINTS } from '../../config/api.js';
 
 function Loader() {
     const { progress } = useProgress();
