@@ -61,16 +61,16 @@ const Overlay = ({ children }) => {
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
-              width: '450px', 
-              minHeight: '240px',
+              width: '320px', 
+              minHeight: '180px',
               background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
               borderRadius: '12px',
               pointerEvents: 'auto',
               boxShadow: '0 8px 32px rgba(0, 0, 0, 0.35)',
-              padding: '20px',
+              padding: '16px',
               boxSizing: 'border-box',
               color: 'white',
-              fontSize: '24px',
+              fontSize: '18px',
               textAlign: 'justify',
             }}
             
@@ -79,9 +79,9 @@ const Overlay = ({ children }) => {
             <button 
               onClick={handleDownloadClick}
               style={{
-                marginTop: '20px',
-                padding: '10px 20px',
-                fontSize: '18px',
+                marginTop: '16px',
+                padding: '8px 16px',
+                fontSize: '16px',
                 fontWeight: 'bold',
                 color: '#764ba2',
                 background: 'white',
